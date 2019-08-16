@@ -12,16 +12,22 @@ A minimal &amp; stateless assert package for writing tests.
 assert.Equal(t, "Hello", "Hello")
 ```
 
-### Contains
+### DeepEqual
 
 ```go
-assert.Contains(t, "Hello", "ello")
+assert.DeepEqual(t, "Hello", "Hello")
 ```
 
 ### Nil
 
 ```go
 assert.Nil(t, nil)
+```
+
+### Contains
+
+```go
+assert.Contains(t, "Hello", "ello")
 ```
 
 {go:footer}

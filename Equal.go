@@ -1,6 +1,7 @@
 package assert
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -21,5 +22,15 @@ func NotEqual(t *testing.T, a interface{}, b interface{}) {
 	}
 
 	t.Errorf("assert.NotEqual:\nvalue: %v\nexpected: %v", a, b)
+	t.FailNow()
+}
+
+// DeepEqual asserts that the two parameters are deeply equal.
+func DeepEqual(t *testing.T, a interface{}, b interface{}) {
+	if reflect.DeepEqual(a, b) {
+		return
+	}
+
+	t.Errorf("assert.DeepEqual:\nvalue: %v\nexpected: %v", a, b)
 	t.FailNow()
 }

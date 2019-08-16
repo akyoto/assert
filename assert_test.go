@@ -17,6 +17,7 @@ func TestEqual(t *testing.T) {
 	assert.NotEqual(t, "Hello", "World")
 	assert.NotEqual(t, &testType{A: 10}, &testType{A: 20})
 	assert.NotEqual(t, testType{A: 10}, testType{A: 20})
+	assert.DeepEqual(t, testType{A: 10}, testType{A: 10})
 }
 
 func TestContains(t *testing.T) {
