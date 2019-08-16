@@ -10,7 +10,7 @@ A minimal &amp; stateless assert package for writing tests.
 
 ## API
 
-### Equals
+### Equal
 
 ```go
 assert.Equal(t, "Hello", "Hello")
