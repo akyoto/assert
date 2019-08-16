@@ -1,6 +1,8 @@
 package assert
 
-import "testing"
+import (
+	"testing"
+)
 
 // Equal asserts that the two parameters are equal.
 func Equal(t *testing.T, a interface{}, b interface{}) {
