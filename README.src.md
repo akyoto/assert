@@ -18,4 +18,10 @@ assert.Equal(t, "Hello", "Hello")
 assert.Contains(t, "Hello", "ello")
 ```
 
+### Nil
+
+```go
+assert.Nil(t, nil)
+```
+
 {go:footer}

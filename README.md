@@ -22,6 +22,12 @@ assert.Equal(t, "Hello", "Hello")
 assert.Contains(t, "Hello", "ello")
 ```
 
+### Nil
+
+```go
+assert.Nil(t, nil)
+```
+
 ## Style
 
 Please take a look at the [style guidelines](https://github.com/akyoto/quality/blob/master/STYLE.md) if you'd like to make a pull request.

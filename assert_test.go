@@ -28,3 +28,11 @@ func TestContains(t *testing.T) {
 	assert.Contains(t, map[string]int{"Hello": 1, "World": 2}, "Hello")
 	assert.NotContains(t, map[string]int{"Hello": 1, "World": 2}, "404")
 }
+
+func TestNil(t *testing.T) {
+	assert.Nil(t, nil)
+	assert.NotNil(t, 0)
+	assert.NotNil(t, "Hello")
+	assert.NotNil(t, testType{})
+	assert.NotNil(t, &testType{})
+}
