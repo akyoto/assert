@@ -29,15 +29,15 @@ func NotContains(t *testing.T, a interface{}, b interface{}) {
 // contains returns whether container contains the given the element.
 // It works with strings, maps and slices.
 func contains(container interface{}, element interface{}) bool {
-	value := reflect.ValueOf(container)
+	containerValue := reflect.ValueOf(container)
 
-	switch value.Kind() {
+	switch containerValue.Kind() {
 	case reflect.String:
 		elementValue := reflect.ValueOf(element)
-		return strings.Contains(value.String(), elementValue.String())
+		return strings.Contains(containerValue.String(), elementValue.String())
 
 	case reflect.Map:
-		keys := value.MapKeys()
+		keys := containerValue.MapKeys()
 
 		for _, key := range keys {
 			if key.Interface() == element {
@@ -45,9 +45,39 @@ func contains(container interface{}, element interface{}) bool {
 			}
 		}
 
-	default:
-		for i := 0; i < value.Len(); i++ {
-			if value.Index(i).Interface() == element {
+	case reflect.Slice:
+		elementValue := reflect.ValueOf(element)
+
+		if elementValue.Kind() == reflect.Slice {
+			elementLength := elementValue.Len()
+
+			if elementLength == 0 {
+				return true
+			}
+
+			if elementLength > containerValue.Len() {
+				return false
+			}
+
+			matchingElements := 0
+
+			for i := 0; i < containerValue.Len(); i++ {
+				if containerValue.Index(i).Interface() == elementValue.Index(matchingElements).Interface() {
+					matchingElements++
+				} else {
+					matchingElements = 0
+				}
+
+				if matchingElements == elementLength {
+					return true
+				}
+			}
+
+			return false
+		}
+
+		for i := 0; i < containerValue.Len(); i++ {
+			if containerValue.Index(i).Interface() == element {
 				return true
 			}
 		}
