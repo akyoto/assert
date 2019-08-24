@@ -36,6 +36,7 @@ func TestContains(t *testing.T) {
 	assert.NotContains(t, []string{"Hello", "World"}, "404")
 	assert.Contains(t, []int{1, 2, 3}, 2)
 	assert.NotContains(t, []int{1, 2, 3}, 4)
+	assert.Contains(t, []int{1, 2, 3}, []int{})
 	assert.Contains(t, []int{1, 2, 3}, []int{1, 2})
 	assert.NotContains(t, []int{1, 2, 3}, []int{2, 1})
 	assert.Contains(t, []byte{'H', 'e', 'l', 'l', 'o'}, byte('e'))
