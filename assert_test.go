@@ -10,6 +10,11 @@ type testType struct {
 	A int
 }
 
+func TestTrue(t *testing.T) {
+	assert.True(t, true)
+	assert.False(t, false)
+}
+
 func TestNil(t *testing.T) {
 	assert.Nil(t, nil)
 	assert.NotNil(t, 0)
