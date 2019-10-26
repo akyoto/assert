@@ -6,7 +6,7 @@ import (
 )
 
 // Nil asserts that the given parameter equals nil.
-func Nil(t *testing.T, a interface{}) {
+func Nil(t testing.TB, a interface{}) {
 	if isNil(a) {
 		return
 	}
@@ -16,7 +16,7 @@ func Nil(t *testing.T, a interface{}) {
 }
 
 // NotNil asserts that the given parameter does not equal nil.
-func NotNil(t *testing.T, a interface{}) {
+func NotNil(t testing.TB, a interface{}) {
 	if !isNil(a) {
 		return
 	}

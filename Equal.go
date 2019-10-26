@@ -6,7 +6,7 @@ import (
 )
 
 // Equal asserts that the two parameters are equal.
-func Equal(t *testing.T, a interface{}, b interface{}) {
+func Equal(t testing.TB, a interface{}, b interface{}) {
 	if a == b {
 		return
 	}
@@ -16,7 +16,7 @@ func Equal(t *testing.T, a interface{}, b interface{}) {
 }
 
 // NotEqual asserts that the two parameters are equal.
-func NotEqual(t *testing.T, a interface{}, b interface{}) {
+func NotEqual(t testing.TB, a interface{}, b interface{}) {
 	if a != b {
 		return
 	}
@@ -26,7 +26,7 @@ func NotEqual(t *testing.T, a interface{}, b interface{}) {
 }
 
 // DeepEqual asserts that the two parameters are deeply equal.
-func DeepEqual(t *testing.T, a interface{}, b interface{}) {
+func DeepEqual(t testing.TB, a interface{}, b interface{}) {
 	if reflect.DeepEqual(a, b) {
 		return
 	}

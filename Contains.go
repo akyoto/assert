@@ -7,7 +7,7 @@ import (
 )
 
 // Contains asserts that a contains b.
-func Contains(t *testing.T, a interface{}, b interface{}) {
+func Contains(t testing.TB, a interface{}, b interface{}) {
 	if contains(a, b) {
 		return
 	}
@@ -17,7 +17,7 @@ func Contains(t *testing.T, a interface{}, b interface{}) {
 }
 
 // NotContains asserts that a doesn't contain b.
-func NotContains(t *testing.T, a interface{}, b interface{}) {
+func NotContains(t testing.TB, a interface{}, b interface{}) {
 	if !contains(a, b) {
 		return
 	}
