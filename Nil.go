@@ -11,7 +11,9 @@ func Nil(t testing.TB, a interface{}) {
 		return
 	}
 
-	t.Errorf("assert.Nil:\nvalue: %v\nexpected nil value", a)
+	t.Errorf(`assert.Nil:
+value:    %v
+expected: nil`, a)
 	t.FailNow()
 }
 
@@ -21,7 +23,9 @@ func NotNil(t testing.TB, a interface{}) {
 		return
 	}
 
-	t.Errorf("assert.NotNil:\nvalue: %v\nexpected: non-nil value", a)
+	t.Errorf(`assert.NotNil:
+value:    %v
+expected: not nil`, a)
 	t.FailNow()
 }
 

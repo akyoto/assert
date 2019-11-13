@@ -11,7 +11,16 @@ func Equal(t testing.TB, a interface{}, b interface{}) {
 		return
 	}
 
-	t.Errorf("assert.Equal:\nvalue: %v\nexpected: %v", a, b)
+	if reflect.TypeOf(a) == reflect.TypeOf(b) {
+		t.Errorf(`assert.Equal:
+value:    %v
+expected: %v`, a, b)
+	} else {
+		t.Errorf(`assert.Equal:
+value:    %v (%s)
+expected: %v (%s)`, a, reflect.TypeOf(a).Name(), b, reflect.TypeOf(b).Name())
+	}
+
 	t.FailNow()
 }
 
@@ -21,7 +30,9 @@ func NotEqual(t testing.TB, a interface{}, b interface{}) {
 		return
 	}
 
-	t.Errorf("assert.NotEqual:\nvalue: %v\nexpected: %v", a, b)
+	t.Errorf(`assert.NotEqual:
+value:    %v
+expected: %v`, a, b)
 	t.FailNow()
 }
 
@@ -31,6 +42,8 @@ func DeepEqual(t testing.TB, a interface{}, b interface{}) {
 		return
 	}
 
-	t.Errorf("assert.DeepEqual:\nvalue: %v\nexpected: %v", a, b)
+	t.Errorf(`assert.DeepEqual:
+value:    %v
+expected: %v`, a, b)
 	t.FailNow()
 }

@@ -12,7 +12,9 @@ func Contains(t testing.TB, a interface{}, b interface{}) {
 		return
 	}
 
-	t.Errorf("assert.Contains:\nvalue: %v\ncollection: %v", a, b)
+	t.Errorf(`assert.Contains:
+container: %v
+element:   %v`, a, b)
 	t.FailNow()
 }
 
@@ -22,7 +24,9 @@ func NotContains(t testing.TB, a interface{}, b interface{}) {
 		return
 	}
 
-	t.Errorf("assert.NotContains:\nvalue: %v\ncollection: %v", a, b)
+	t.Errorf(`assert.NotContains:
+container: %v
+element:   %v`, a, b)
 	t.FailNow()
 }
 

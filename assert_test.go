@@ -6,9 +6,7 @@ import (
 	"github.com/akyoto/assert"
 )
 
-type testType struct {
-	A int
-}
+type testType struct{ A int }
 
 func TestTrue(t *testing.T) {
 	assert.True(t, true)
